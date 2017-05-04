@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 
+
 <head>
     <title>E-Shops</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -25,13 +26,13 @@
     <!--end slider -->
     <script src="js/jquery.easydropdown.js"></script>
 </head>
-<body>  
-    <?php  
+<body>
+    <?php
         error_reporting(E_ALL);
         ini_set('display_errors', '1');
-        include("header.php");      
+        include("header.php");
         include("cart_body.php");
         include("footer.php");
     ?>
 
-</body>    
+</body>
