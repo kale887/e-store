@@ -1,10 +1,10 @@
- <?php 
-include "storescripts/connect_to_mysql.php"; 
+ <?php
+include "storescripts/connect_to_mysql.php";
 $dynamicList = "";
 $sql = mysql_query("SELECT * FROM products ORDER BY date_added DESC LIMIT 5");
-$productCount = mysql_num_rows($sql); 
+$productCount = mysql_num_rows($sql);
 if ($productCount > 0) {
-	while($row = mysql_fetch_array($sql)){ 
+	while($row = mysql_fetch_array($sql)){
              $id = $row["id"];
 			 $product_name = $row["product_name"];
 			 $price = $row["price"];
@@ -18,7 +18,8 @@ if ($productCount > 0) {
         </tr>
       </table>';*/
 
-         $dynamicList .= '<div class="col_1_of_3 span_1_of_3">
+         $dynamicList .= '<div class="container-fluid">
+                          <div class="col_1_of_3 span_1_of_3">
                             <a  href="product.php?id=' . $id . '">
                                 <div class="inner_content clearfix">
                                     <div class="product_image">
@@ -44,14 +45,15 @@ if ($productCount > 0) {
 }
 mysql_close();
 ?>
- 
+
  <div class="main">
         <div class="wrap">
             <div class="section group">
-                <div class="cont span_2_of_3">
+                <!-- <div class="cont span_2_of_3"> -->
+                <div class="">
                     <h2 class="head">Featured Products</h2>
                     <div class="top-box">
-                        <!--div class="col_1_of_3 span_1_of_3">
+                        <!-- <div class="col_1_of_3 span_1_of_3">
                             <a href="single.html">
                                 <div class="inner_content clearfix">
                                     <div class="product_image">
@@ -70,13 +72,13 @@ mysql_close();
                                     </div>
                                 </div>
                             </a>
-                        </div-->                        
-                        <?php echo $dynamicList; ?>                 
+                        </div> -->
+                        <?php echo $dynamicList; ?>
                         <div class="clear"></div>
                     </div>
-                   
+
                 </div>
-                <div class="rsidebar span_1_of_left">
+                <!-- <div class="rsidebar span_1_of_left">
                     <div class="top-border"> </div>
                     <div class="border">
                         <link href="css/default.css" rel="stylesheet" type="text/css" media="all" />
@@ -107,7 +109,7 @@ mysql_close();
                             </form>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="clear"></div>
             </div>
         </div>

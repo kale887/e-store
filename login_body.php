@@ -1,23 +1,23 @@
-     <?php 
-  
+     <?php
+
 if (isset($_SESSION["user"])) {
-    header("location: index.php"); 
+    header("location: index.php");
     exit();
 }
 ?>
 
-<?php 
+<?php
 if (isset($_POST["username"]) && isset($_POST["password"])) {
 
 	$user = preg_replace('#[^A-Za-z0-9]#i', '', $_POST["username"]);
     $password = preg_replace('#[^A-Za-z0-9]#i', '', $_POST["password"]);
 
-    include "storescripts/connect_to_mysql.php"; 
-    $sql = mysql_query("SELECT id FROM customer WHERE login='$user' AND password='$password' LIMIT 1"); 
-	
+    include "storescripts/connect_to_mysql.php";
+    $sql = mysql_query("SELECT id FROM customer WHERE login='$user' AND password='$password' LIMIT 1");
+
     $existCount = mysql_num_rows($sql);
-    if ($existCount == 1) { 
-	     while($row = mysql_fetch_array($sql)){ 
+    if ($existCount == 1) {
+	     while($row = mysql_fetch_array($sql)){
              $id = $row["id"];
 		 }
 		 $_SESSION["id"] = $id;
@@ -31,13 +31,12 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 	}
 }
 ?>
-    
+
     <div class="login">
         <div class="wrap">
             <div class="col_1_of_login span_1_of_login">
                 <h4 class="title">New Customers</h4>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl
-                    ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan</p>
+                <p> This changes are for the introduction to the new customers which will visit our webpage</p>
                 <div class="button1">
                     <a href="register.html"><input type="submit" name="Submit" value="Create an Account"></a>
                 </div>

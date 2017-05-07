@@ -1,9 +1,9 @@
-<?php  
+<?php
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
-include "storescripts/connect_to_mysql.php"; 
+include "storescripts/connect_to_mysql.php";
 ?>
-<?php 
+<?php
 if(isset($_POST['cid']) && isset($_POST['pid'])){
 	$cid = $_POST['cid'];
 	$pid = $_POST['pid'];
@@ -16,7 +16,7 @@ if(isset($_POST['cid']) && isset($_POST['pid'])){
 		$price = $row["price"];
 		$date_added = $row["date_added"];
 	}
-	$quantity=1;	
+	$quantity=1;
 	if($count==0){
 		$ssql = mysql_query("INSERT INTO customer_cart (productid, customerid, product_name, details, price, quantity, date_added) VALUES('$pid','$cid','$product_name','$details','$price','$quantity',now())") or die (mysql_error());
 	} else {
@@ -29,11 +29,11 @@ if(isset($_POST['cid']) && isset($_POST['pid'])){
 			$aquantity=$aquantity+1;
 			$ssql = mysql_query("UPDATE customer_cart SET quantity='$aquantity' WHERE productid='$pid' AND customerid='$cid' ") or die (mysql_error());
 		} else {
-			$ssql = mysql_query("INSERT INTO customer_cart (productid, customerid, product_name, details, price, quantity, date_added) 
+			$ssql = mysql_query("INSERT INTO customer_cart (productid, customerid, product_name, details, price, quantity, date_added)
         	VALUES('$pid','$cid','$product_name','$details','$price','$quantity',now())") or die (mysql_error());
-		}	
+		}
 	}
-	header("location: cart.php"); 
+	header("location: cart.php");
     exit();
 }
 
@@ -55,7 +55,7 @@ if (isset($_POST['item_to_adjust']) && $_POST['item_to_adjust'] != "" && isset($
 	$cid = $_SESSION["id"];
 	$item_to_adjust = $_POST['item_to_adjust'];
 	$quantity = $_POST['quantity'];
-	$quantity = preg_replace('#[^0-9]#i', '', $quantity); 
+	$quantity = preg_replace('#[^0-9]#i', '', $quantity);
 	if ($quantity >= 100) { $quantity = 99; }
 	if ($quantity < 1) { $quantity = 1; }
 	if ($quantity == "") { $quantity = 1; }
@@ -77,7 +77,7 @@ $cartTotal = "";
 if(isset($_SESSION["id"])){
 	$cid=$_SESSION["id"];
 	$sql = mysql_query("SELECT * FROM customer_cart WHERE customerid='$cid'") or die(mysql_error());
-	$count = mysql_num_rows($sql);	
+	$count = mysql_num_rows($sql);
 	if($count==0){
 		$cartOutput = "<h2 align='center'>Your shopping cart is empty</h2>";
 	}
@@ -111,26 +111,28 @@ if(isset($_SESSION["id"])){
 	}
 }
 ?>
+ <div class="container-fluid">
 
-  <table width="100%" border="1" cellspacing="0" cellpadding="6">
+  <table class="table">
       <tr>
-        <td width="18%" bgcolor="#C5DFFA"><strong>Product</strong></td>
-        <td width="45%" bgcolor="#C5DFFA"><strong>Product Description</strong></td>
-        <td width="10%" bgcolor="#C5DFFA"><strong>Unit Price</strong></td>
-        <td width="9%" bgcolor="#C5DFFA"><strong>Quantity</strong></td>
-        <td width="9%" bgcolor="#C5DFFA"><strong>Total</strong></td>
-        <td width="9%" bgcolor="#C5DFFA"><strong>Remove</strong></td>
+				<td width="18%" bgcolor="#C5DFFA"><strong>Product</strong></td>
+				<td width="45%" bgcolor="#C5DFFA"><strong>Product Description</strong></td>
+				<td width="10%" bgcolor="#C5DFFA"><strong>Unit Price</strong></td>
+				<td width="9%" bgcolor="#C5DFFA"><strong>Quantity</strong></td>
+				<td width="9%" bgcolor="#C5DFFA"><strong>Total</strong></td>
+				<td width="9%" bgcolor="#C5DFFA"><strong>Remove</strong></td>
       </tr>
      <?php echo $cartOutput; ?>
-     <!-- <tr>
+     <tr>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
-      </tr> -->
+      </tr>
     </table>
     <br />
     <br />
     <a href="cart.php?cmd=emptycart">Click Here to Empty Your Shopping Cart</a>
+	</div>

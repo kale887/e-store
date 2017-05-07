@@ -9,7 +9,7 @@
                 <div class="slide_content">
                     <div class="slide_content_wrap">
                         <!-- Text title -->
-                        <h4 class="title">Aluminium Club</h4>
+                        <h4 class="title">Sunglasses </h4>
                         <!-- /Text title -->
 
                         <!-- Text description -->
@@ -24,8 +24,8 @@
                 <img src="images/banner1.jpg" alt="" />
                 <div class="slide_content">
                     <div class="slide_content_wrap">
-                        <h4 class="title">consectetuer adipiscing </h4>
-                        <p class="description">diam nonummy nibh euismod</p>
+                        <h4 class="title">Fall Collection</h4>
+                        <p class="description"></p>
                     </div>
                 </div>
             </div>

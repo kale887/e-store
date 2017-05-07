@@ -27,7 +27,7 @@
         <div class="footer-bottom">
             <div class="wrap">
                 <div class="copy">
-                    <p>© PHP My SQL 2017 - Project by <a href="#" target="_blank">Aditya Kale , Nitesh and Ankit </a></p>
+                    <p>© PHP My SQL 2017 - Project by <a href="#" target="_blank">Aditya Kale , Nitesh Sawant and Ankit Tiwar </a></p>
                 </div>
                 <div class="f-list2">
                     <ul>
